@@ -425,7 +425,8 @@ int calculation(
     char* data_file_name,
     char* results_file_name,
     int compartment_size,
-    int subcompartment_num
+    int subcompartment_num,
+    int result_placement
 )
 {
     int k=0,imax=0,imin=0, rsize=1, dsize=0;
@@ -444,9 +445,23 @@ int calculation(
     FILE* ofile;
     ofile = fopen(results_file_name, "w");
 
-    k = (check.compSize%2==0) ? check.compSize/2-1 : check.compSize/2;
-    for(int i=0; i< k; i++)
-        fprintf(ofile, "\n");
+    switch(result_placement) {
+        // start
+        case 0:
+            break;
+        // middle
+        case 1:
+            k = (check.compSize%2==0) ? check.compSize/2-1 : check.compSize/2;
+            for(int i=0; i< k; i++)
+                fprintf(ofile, "\n");
+            break;
+        // end
+        case 2:
+            k = check.compSize-1;
+            for(int i=0; i< k; i++)
+                fprintf(ofile, "\n");
+            break;
+    }
 
 
     check.Compartments = (double*)calloc(sizeof(double), check.compSize);

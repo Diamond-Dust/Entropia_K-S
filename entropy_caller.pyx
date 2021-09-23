@@ -21,14 +21,16 @@ cdef extern from "entropy.c":
         char* data_file_name,
         char* results_file_name,
         int compartment_size,
-        int subcompartment_num
+        int subcompartment_num,
+        int result_placement
     )
 
 cpdef py_calculation(
     data_file_name,
     results_file_name,
     compartment_size,
-    subcompartment_num
+    subcompartment_num,
+    result_placement
 ):
 
     data_file_name_byte_string = data_file_name.encode('UTF-8')
@@ -39,7 +41,8 @@ cpdef py_calculation(
         data_file_name_c_string,
         results_file_name_c_string,
         compartment_size,
-        subcompartment_num
+        subcompartment_num,
+        result_placement
     )
 
 

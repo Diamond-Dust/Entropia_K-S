@@ -1073,7 +1073,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 /* Module declarations from 'entropy_caller' */
 static PyObject *__pyx_f_14entropy_caller_py_read_all_from(PyObject *, PyObject *, int __pyx_skip_dispatch); /*proto*/
 static PyObject *__pyx_f_14entropy_caller_py_increment(PyObject *, int __pyx_skip_dispatch); /*proto*/
-static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch); /*proto*/
+static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *, PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch); /*proto*/
 #define __Pyx_MODULE_NAME "entropy_caller"
 extern int __pyx_module_is_main_entropy_caller;
 int __pyx_module_is_main_entropy_caller = 0;
@@ -1088,6 +1088,7 @@ static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_py_address[] = "py_address";
 static const char __pyx_k_data_file_name[] = "data_file_name";
 static const char __pyx_k_compartment_size[] = "compartment_size";
+static const char __pyx_k_result_placement[] = "result_placement";
 static const char __pyx_k_results_file_name[] = "results_file_name";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_subcompartment_num[] = "subcompartment_num";
@@ -1100,12 +1101,13 @@ static PyObject *__pyx_n_s_limit;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_py_address;
+static PyObject *__pyx_n_s_result_placement;
 static PyObject *__pyx_n_s_results_file_name;
 static PyObject *__pyx_n_s_subcompartment_num;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_pf_14entropy_caller_py_read_all_from(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_py_address, PyObject *__pyx_v_limit); /* proto */
 static PyObject *__pyx_pf_14entropy_caller_2py_increment(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a); /* proto */
-static PyObject *__pyx_pf_14entropy_caller_4py_calculation(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data_file_name, PyObject *__pyx_v_results_file_name, PyObject *__pyx_v_compartment_size, PyObject *__pyx_v_subcompartment_num); /* proto */
+static PyObject *__pyx_pf_14entropy_caller_4py_calculation(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data_file_name, PyObject *__pyx_v_results_file_name, PyObject *__pyx_v_compartment_size, PyObject *__pyx_v_subcompartment_num, PyObject *__pyx_v_result_placement); /* proto */
 /* Late includes */
 
 /* "entropy_caller.pyx":4
@@ -1388,7 +1390,7 @@ static PyObject *__pyx_pf_14entropy_caller_2py_increment(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "entropy_caller.pyx":27
+/* "entropy_caller.pyx":28
  *     )
  * 
  * cpdef py_calculation(             # <<<<<<<<<<<<<<
@@ -1397,7 +1399,7 @@ static PyObject *__pyx_pf_14entropy_caller_2py_increment(CYTHON_UNUSED PyObject 
  */
 
 static PyObject *__pyx_pw_14entropy_caller_5py_calculation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *__pyx_v_data_file_name, PyObject *__pyx_v_results_file_name, PyObject *__pyx_v_compartment_size, PyObject *__pyx_v_subcompartment_num, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *__pyx_v_data_file_name, PyObject *__pyx_v_results_file_name, PyObject *__pyx_v_compartment_size, PyObject *__pyx_v_subcompartment_num, PyObject *__pyx_v_result_placement, CYTHON_UNUSED int __pyx_skip_dispatch) {
   PyObject *__pyx_v_data_file_name_byte_string = NULL;
   char *__pyx_v_data_file_name_c_string;
   PyObject *__pyx_v_results_file_name_byte_string = NULL;
@@ -1410,56 +1412,20 @@ static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *__pyx_v_data_
   char *__pyx_t_4;
   int __pyx_t_5;
   int __pyx_t_6;
+  int __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("py_calculation", 0);
 
-  /* "entropy_caller.pyx":34
+  /* "entropy_caller.pyx":36
  * ):
  * 
  *     data_file_name_byte_string = data_file_name.encode('UTF-8')             # <<<<<<<<<<<<<<
  *     cdef char* data_file_name_c_string = data_file_name_byte_string
  *     results_file_name_byte_string = results_file_name.encode('UTF-8')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_data_file_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_s_UTF_8) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_s_UTF_8);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_v_data_file_name_byte_string = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "entropy_caller.pyx":35
- * 
- *     data_file_name_byte_string = data_file_name.encode('UTF-8')
- *     cdef char* data_file_name_c_string = data_file_name_byte_string             # <<<<<<<<<<<<<<
- *     results_file_name_byte_string = results_file_name.encode('UTF-8')
- *     cdef char* results_file_name_c_string = results_file_name_byte_string
- */
-  __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_data_file_name_byte_string); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_v_data_file_name_c_string = __pyx_t_4;
-
-  /* "entropy_caller.pyx":36
- *     data_file_name_byte_string = data_file_name.encode('UTF-8')
- *     cdef char* data_file_name_c_string = data_file_name_byte_string
- *     results_file_name_byte_string = results_file_name.encode('UTF-8')             # <<<<<<<<<<<<<<
- *     cdef char* results_file_name_c_string = results_file_name_byte_string
- *     return calculation(
- */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_results_file_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_data_file_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1476,20 +1442,57 @@ static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *__pyx_v_data_
   if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_v_results_file_name_byte_string = __pyx_t_1;
+  __pyx_v_data_file_name_byte_string = __pyx_t_1;
   __pyx_t_1 = 0;
 
   /* "entropy_caller.pyx":37
+ * 
+ *     data_file_name_byte_string = data_file_name.encode('UTF-8')
+ *     cdef char* data_file_name_c_string = data_file_name_byte_string             # <<<<<<<<<<<<<<
+ *     results_file_name_byte_string = results_file_name.encode('UTF-8')
+ *     cdef char* results_file_name_c_string = results_file_name_byte_string
+ */
+  __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_data_file_name_byte_string); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_v_data_file_name_c_string = __pyx_t_4;
+
+  /* "entropy_caller.pyx":38
+ *     data_file_name_byte_string = data_file_name.encode('UTF-8')
+ *     cdef char* data_file_name_c_string = data_file_name_byte_string
+ *     results_file_name_byte_string = results_file_name.encode('UTF-8')             # <<<<<<<<<<<<<<
+ *     cdef char* results_file_name_c_string = results_file_name_byte_string
+ *     return calculation(
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_results_file_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_s_UTF_8) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_s_UTF_8);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_results_file_name_byte_string = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "entropy_caller.pyx":39
  *     cdef char* data_file_name_c_string = data_file_name_byte_string
  *     results_file_name_byte_string = results_file_name.encode('UTF-8')
  *     cdef char* results_file_name_c_string = results_file_name_byte_string             # <<<<<<<<<<<<<<
  *     return calculation(
  *         data_file_name_c_string,
  */
-  __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_results_file_name_byte_string); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_results_file_name_byte_string); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L1_error)
   __pyx_v_results_file_name_c_string = __pyx_t_4;
 
-  /* "entropy_caller.pyx":38
+  /* "entropy_caller.pyx":40
  *     results_file_name_byte_string = results_file_name.encode('UTF-8')
  *     cdef char* results_file_name_c_string = results_file_name_byte_string
  *     return calculation(             # <<<<<<<<<<<<<<
@@ -1498,38 +1501,47 @@ static PyObject *__pyx_f_14entropy_caller_py_calculation(PyObject *__pyx_v_data_
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "entropy_caller.pyx":41
+  /* "entropy_caller.pyx":43
  *         data_file_name_c_string,
  *         results_file_name_c_string,
  *         compartment_size,             # <<<<<<<<<<<<<<
- *         subcompartment_num
- *     )
+ *         subcompartment_num,
+ *         result_placement
  */
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_compartment_size); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_compartment_size); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L1_error)
 
-  /* "entropy_caller.pyx":42
+  /* "entropy_caller.pyx":44
  *         results_file_name_c_string,
  *         compartment_size,
- *         subcompartment_num             # <<<<<<<<<<<<<<
+ *         subcompartment_num,             # <<<<<<<<<<<<<<
+ *         result_placement
+ *     )
+ */
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_subcompartment_num); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L1_error)
+
+  /* "entropy_caller.pyx":45
+ *         compartment_size,
+ *         subcompartment_num,
+ *         result_placement             # <<<<<<<<<<<<<<
  *     )
  * 
  */
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_subcompartment_num); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_v_result_placement); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 45, __pyx_L1_error)
 
-  /* "entropy_caller.pyx":38
+  /* "entropy_caller.pyx":40
  *     results_file_name_byte_string = results_file_name.encode('UTF-8')
  *     cdef char* results_file_name_c_string = results_file_name_byte_string
  *     return calculation(             # <<<<<<<<<<<<<<
  *         data_file_name_c_string,
  *         results_file_name_c_string,
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(calculation(__pyx_v_data_file_name_c_string, __pyx_v_results_file_name_c_string, __pyx_t_5, __pyx_t_6)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(calculation(__pyx_v_data_file_name_c_string, __pyx_v_results_file_name_c_string, __pyx_t_5, __pyx_t_6, __pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "entropy_caller.pyx":27
+  /* "entropy_caller.pyx":28
  *     )
  * 
  * cpdef py_calculation(             # <<<<<<<<<<<<<<
@@ -1559,6 +1571,7 @@ static PyObject *__pyx_pw_14entropy_caller_5py_calculation(PyObject *__pyx_self,
   PyObject *__pyx_v_results_file_name = 0;
   PyObject *__pyx_v_compartment_size = 0;
   PyObject *__pyx_v_subcompartment_num = 0;
+  PyObject *__pyx_v_result_placement = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1566,12 +1579,14 @@ static PyObject *__pyx_pw_14entropy_caller_5py_calculation(PyObject *__pyx_self,
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("py_calculation (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_data_file_name,&__pyx_n_s_results_file_name,&__pyx_n_s_compartment_size,&__pyx_n_s_subcompartment_num,0};
-    PyObject* values[4] = {0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_data_file_name,&__pyx_n_s_results_file_name,&__pyx_n_s_compartment_size,&__pyx_n_s_subcompartment_num,&__pyx_n_s_result_placement,0};
+    PyObject* values[5] = {0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
         case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
         CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
@@ -1592,53 +1607,61 @@ static PyObject *__pyx_pw_14entropy_caller_5py_calculation(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_results_file_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 4, 4, 1); __PYX_ERR(0, 27, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 5, 5, 1); __PYX_ERR(0, 28, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_compartment_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 4, 4, 2); __PYX_ERR(0, 27, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 5, 5, 2); __PYX_ERR(0, 28, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_subcompartment_num)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 4, 4, 3); __PYX_ERR(0, 27, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 5, 5, 3); __PYX_ERR(0, 28, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_result_placement)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 5, 5, 4); __PYX_ERR(0, 28, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "py_calculation") < 0)) __PYX_ERR(0, 27, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "py_calculation") < 0)) __PYX_ERR(0, 28, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
     __pyx_v_data_file_name = values[0];
     __pyx_v_results_file_name = values[1];
     __pyx_v_compartment_size = values[2];
     __pyx_v_subcompartment_num = values[3];
+    __pyx_v_result_placement = values[4];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 27, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("py_calculation", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 28, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("entropy_caller.py_calculation", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14entropy_caller_4py_calculation(__pyx_self, __pyx_v_data_file_name, __pyx_v_results_file_name, __pyx_v_compartment_size, __pyx_v_subcompartment_num);
+  __pyx_r = __pyx_pf_14entropy_caller_4py_calculation(__pyx_self, __pyx_v_data_file_name, __pyx_v_results_file_name, __pyx_v_compartment_size, __pyx_v_subcompartment_num, __pyx_v_result_placement);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14entropy_caller_4py_calculation(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data_file_name, PyObject *__pyx_v_results_file_name, PyObject *__pyx_v_compartment_size, PyObject *__pyx_v_subcompartment_num) {
+static PyObject *__pyx_pf_14entropy_caller_4py_calculation(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data_file_name, PyObject *__pyx_v_results_file_name, PyObject *__pyx_v_compartment_size, PyObject *__pyx_v_subcompartment_num, PyObject *__pyx_v_result_placement) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1647,7 +1670,7 @@ static PyObject *__pyx_pf_14entropy_caller_4py_calculation(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("py_calculation", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14entropy_caller_py_calculation(__pyx_v_data_file_name, __pyx_v_results_file_name, __pyx_v_compartment_size, __pyx_v_subcompartment_num, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14entropy_caller_py_calculation(__pyx_v_data_file_name, __pyx_v_results_file_name, __pyx_v_compartment_size, __pyx_v_subcompartment_num, __pyx_v_result_placement, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1722,6 +1745,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_py_address, __pyx_k_py_address, sizeof(__pyx_k_py_address), 0, 0, 1, 1},
+  {&__pyx_n_s_result_placement, __pyx_k_result_placement, sizeof(__pyx_k_result_placement), 0, 0, 1, 1},
   {&__pyx_n_s_results_file_name, __pyx_k_results_file_name, sizeof(__pyx_k_results_file_name), 0, 0, 1, 1},
   {&__pyx_n_s_subcompartment_num, __pyx_k_subcompartment_num, sizeof(__pyx_k_subcompartment_num), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},

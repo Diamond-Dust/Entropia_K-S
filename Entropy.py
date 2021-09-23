@@ -80,6 +80,13 @@ class Config:
         self.data_file_name = config.get(main_section, 'data_file_name')
         self.data_file_limit = int(config.get(main_section, 'data_file_limit'))
         self.data_convert_commas = bool(config.get(main_section, 'data_convert_commas'))
+        result_placement = config.get(main_section, 'result_placement')
+        if result_placement == 'start':
+            self.result_placement = 0
+        elif result_placement == 'middle':
+            self.result_placement = 1
+        elif result_placement == 'end':
+            self.result_placement = 2
 
         style_section = 'STYLE'
         self.matplotlib_style = config.get(style_section, 'matplotlib_style')
@@ -154,7 +161,8 @@ def submit(event, c, data_size, s_comp_size, s_subcomp_num, entropy_line, ax, fi
         c.data_file_name,
         c.results_file_name,
         int(s_comp_size.val),
-        int(s_subcomp_num.val)
+        int(s_subcomp_num.val),
+        int(c.result_placement)
     )
     with open(c.results_file_name, 'r') as f:
         lines = f.readlines()
