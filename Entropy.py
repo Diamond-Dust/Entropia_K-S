@@ -13,7 +13,7 @@ except ImportError:
 
 from re import sub as re_sub
 from operator import itemgetter
-import numpy as np
+from numpy import arange, array, NaN
 from matplotlib.style import use as mpl_style_use
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button, RadioButtons
@@ -166,10 +166,10 @@ def submit(event, c, data_size, s_comp_size, s_subcomp_num, entropy_line, ax, fi
     )
     with open(c.results_file_name, 'r') as f:
         lines = f.readlines()
-        y_new = [float(line.split()[0]) if len(line.split()) > 0 else np.NaN for line in lines]
-    y_new_pad = [np.NaN] * (data_size - len(y_new))
+        y_new = [float(line.split()[0]) if len(line.split()) > 0 else NaN for line in lines]
+    y_new_pad = [NaN] * (data_size - len(y_new))
     y_new.extend(y_new_pad)
-    np_y = np.array(y_new)
+    np_y = array(y_new)
     entropy_line.set_ydata(np_y)
     cur_ylims = ax.get_ylim()
     cur_xlims = ax.get_xlim()
@@ -248,7 +248,7 @@ def plotting_logic(c, data_size, restart_flag):
     plt.subplots_adjust(left=0.15, bottom=0.25, right=0.95)
     fig.canvas.set_window_title('Entropy K-S')
     active_slider = SteppableDualSliderController()
-    x = np.arange(0, data_size)
+    x = arange(0, data_size)
     y = [0] * data_size
     entropy_line, = plt.plot(x, y, lw=1, color=c.entropy_line_colour)
     y = read_data_to_y(c)
